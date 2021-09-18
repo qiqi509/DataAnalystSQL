@@ -1,6 +1,6 @@
 
 SELECT Property.Name, CAST(Property.Bedroom AS varchar(10)) + ' Besdrooms' + ', '  + CAST(property.Bathroom AS varchar (10)) + ' Bathrooms'  AS Propertydetails,
-pr.Amount AS Rentalpayment,ad.Number+ad.Street AS Propertyaddress,pe.Amount,pe.Date, p.FirstName AS CurrentOwner
+pr.Amount AS Rentalpayment,ad.Number+ad.Street AS Propertyaddress,pe.Amount AS Expense,pe.Date, p.FirstName AS CurrentOwner
 FROM [dbo].[Property]
 JOIN PropertyRentalPayment pr ON Property.Id = pr.PropertyId
 JOIN PropertyExpense pe ON Property.Id = pe.PropertyId
