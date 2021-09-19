@@ -11,9 +11,9 @@ SUM(CASE
 		(DATEPART(dd,tp.EndDate) * 1) / DATEDIFF(DAY, tp.EndDate, DATEADD(MONTH, 1, tp.EndDate)))
 	WHEN rp.FrequencyType = 1 THEN rp.Amount * DATEDIFF(week, tp.StartDate, tp.EndDate) 
 	WHEN rp.FrequencyType = 2 THEN rp.Amount * (DATEDIFF(week, tp.StartDate, tp.EndDate)) / 2
-END) AS [TotalPayment]
+END) AS [TotalPayment], 
 
-, COUNT(js.Status) AS JobAvailable, per.FirstName, per.LastName
+COUNT(js.Status) AS JobAvailable, per.FirstName, per.LastName
 
 FROM [dbo].[Property] p
 JOIN OwnerProperty op ON p.id = op.PropertyId and op.OwnerId = 1426
